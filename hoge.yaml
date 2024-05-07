@@ -16,6 +16,7 @@ spec:
       containers:
       # - image: public.ecr.aws/l6m2t8p7/docker-2048:latest
       # - image: httpd:latest
+      - image: nginx:latest
         imagePullPolicy: Always
         name: app-2052
         ports:

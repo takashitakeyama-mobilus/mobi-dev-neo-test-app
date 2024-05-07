@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: game-2054
+  name: deployment-2054
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app-2054
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app-2054
+    spec:
+      containers:
+      # - image: public.ecr.aws/l6m2t8p7/docker-2048:latest
+      # - image: httpd:latest
+      - image: nginx:commit-e01e109
+        imagePullPolicy: Always
+        name: app-2054
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        karpenter.sh/capacity-type: spot
+        kubernetes.io/arch: amd64
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: DoNotSchedule
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - app-2054
+            topologyKey: kubernetes.io/hostname

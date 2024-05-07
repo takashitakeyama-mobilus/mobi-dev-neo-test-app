@@ -14,8 +14,8 @@ spec:
         app.kubernetes.io/name: app-2052
     spec:
       containers:
-      # - image: 058264449786.dkr.ecr.ap-northeast-1.amazonaws.com/mobi-dev-neo:commit-05f9c67
-      - image: 058264449786.dkr.ecr.ap-northeast-1.amazonaws.com/mobi-dev-neo:commit-05f9c67
+      # - image: 058264449786.dkr.ecr.ap-northeast-1.amazonaws.com/mobi-dev-neo:commit-4140295
+      - image: 058264449786.dkr.ecr.ap-northeast-1.amazonaws.com/mobi-dev-neo:commit-4140295
         imagePullPolicy: Always
         name: app-2052
         ports:

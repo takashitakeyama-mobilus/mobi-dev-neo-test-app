@@ -16,7 +16,7 @@ spec:
       containers:
       # - image: public.ecr.aws/l6m2t8p7/docker-2048:latest
       # - image: httpd:latest
-      - image: nginx:058264449786.dkr.ecr.ap-northeast-1.amazonaws.com/mobi-dev-neo:commit-e44d998
+      - image: nginx:commit-b64a5e3
         imagePullPolicy: Always
         name: app-2052
         ports:

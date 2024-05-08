@@ -1,8 +1,0 @@
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-  source:
-    # repoURL: https://github.com/aws-samples/eks-blueprints-actions-workflow
-    # repoURL: https://github.com/takashitakeyama-mobilus/eks-blueprints-actions-workflow
-    repoURL: https://github.com/takashitakeyama-mobilus/mobi-dev-neo-test-app
-    targetRevision: main

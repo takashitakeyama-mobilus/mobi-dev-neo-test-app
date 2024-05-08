@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: game-2052
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: game-2052
+    server: "{{ .Values.spec.destination.server }}"
+  source:
+    repoURL: "{{ .Values.spec.source.repoURL }}"
+    targetRevision: "{{ .Values.spec.source.targetRevision }}"
+    path: helm/game-2052
+    helm:
+      valuesObject:
+        clusterName: "{{ .Values.clusterName }}"
+        ingress:
+          host: "{{ .Values.game2052.ingress.host }}"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
